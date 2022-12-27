@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+   <head> <title>Pico W</title> </head>
+   button.link { background:none; border:none; }
+	<script LANGUAGE="JavaScript">
+      function myFunction (form) {
+			console.log(form);
+			document.getElementById("fssid").value=form;
+      }
+
+		function hide_empty_li() {
+			document.getElementById("ap_list").children[2].style.display="none";
+		}	
+		
+		function onload() {
+			[...document.querySelectorAll('.ap_list li')]
+			.forEach(li=> {
+				if( "" === li.innerText) {
+					li.parentNode.removeChild(li);
+				}
+			})	
+		}
+	</script>
+
+	<body onload="onload()"> <h1>Pico W</h1>
+      <ul class="ap_list">
+			<li><button style="background:none; border:none;" value="<!--#ssid_0-->" onClick="myFunction(this.value)"><!--#ssid_0--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_1-->" onClick="myFunction(this.value)"><!--#ssid_1--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_2-->" onClick="myFunction(this.value)"><!--#ssid_2--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_3-->" onClick="myFunction(this.value)"><!--#ssid_3--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_4-->" onClick="myFunction(this.value)"><!--#ssid_4--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_5-->" onClick="myFunction(this.value)"><!--#ssid_5--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_6-->" onClick="myFunction(this.value)"><!--#ssid_6--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_7-->" onClick="myFunction(this.value)"><!--#ssid_7--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_8-->" onClick="myFunction(this.value)"><!--#ssid_8--></button></li>
+			<li><button style="background:none; border:none;" value="<!--#ssid_9-->" onClick="myFunction(this.value)"><!--#ssid_9--></button></li>
+		</ul>
+		<form name="credentials_form" action="/form.cgi">
+			<label for="fssid">ssid:</label><br>
+			<input type="text" id="fssid" name="fssid" value=""><br>
+			<label for="fpassword">password:</label><br>
+			<input type="password" id="fpassword" name="fpassword" value=""><br>
+			<label for="fNrPixels">Number of pixels:</label><br>
+			<input type="number" id="fnrpixels" name="fnrpixels" value="50"><br>
+			<input type="submit" value="Submit">
+		</form>
+		<p>Footer</p>
+   </body>
+</html>
